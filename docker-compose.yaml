@@ -1,0 +1,13 @@
+services:
+
+  app:
+    image: webdevops/php-apache:7.4
+    restart: always
+    volumes:
+      - ./app:/app
+    networks:
+      - global
+
+networks:
+  global:
+    external: true
