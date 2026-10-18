@@ -1,36 +1,24 @@
-document.body.innerText = document.location.search
+const response = await fetch('/js/app/03_words.sql');
+const text = await response.text();
 
-var params = new URLSearchParams(location.search)
-document.body.innerText = params.get("text")
+var words  = text.split("\n")
+var duplicates  = 0;
+var unique = [];
 
-var text = params.get("text")
-var word = params.get("word")
-var replace = params.get("replace")
+for(var i = 0; i< words.length; i++) {
+    var j = 0;
 
-var words = text.split(" ")
-document.body.innerText = words[0]
-var count = 0
-for(var i =0; i<words.length; i++) {
-    console.log(words[i])
-
-    if (words[i] === word) {
-        count++
+    for (var j = 0; j < unique.length; j++) {
+        if (words[i] == unique[j]) {
+            break;
+        }
     }
-
-}
-console.log(count)
-
-for(var i = 0; i <words.length; i++){
-    if(words[i] === word){
-        words[i] = replace
+    if (j == unique.length) {
+        unique[unique.length] = words[i];
+    } else {
+        duplicates++;
     }
 }
-
-for(var i =0; i<words.length; i++){
-    console.log(words[i])
-}
-var result = ""
-for(var i =0; i<words.length; i++){
-result = result+ words[i] + " "
-}
-console.log(result)
+var result = unique.join("\n");
+console.log("Кол-во удаленных дубликатов:", duplicates);
+console.log("Кол-во уникальных строк:", unique.length);
