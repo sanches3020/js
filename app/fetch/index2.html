@@ -1,0 +1,25 @@
+<head>
+    <meta charset="UTF-8">
+</head>
+
+
+<script>
+    const func = new Promise((resolve, reject) => {
+        reject('Данные самого первого промиса')
+    })
+
+    func
+        .then(data => {
+            console.log('then 1')
+            throw new Error()
+        })
+        .catch(err => {
+            console.log('catch 1')
+        })
+        .then(data => {
+            console.log('then 2')
+        })
+        .catch(err => {
+            console.log('catch 2')
+        })
+</script>

@@ -6,9 +6,28 @@
 </head>
 <body>
 <script type="module">
-    const response = await fetch('./03_words.sql');
-    const text = await response.text();
-    console.log(text.length)
+    const response = await fetch('/03_words.sql')
+    const text = await response.text()
+
+    var lines = text.split("\n")
+
+    var uniq = []
+
+    for (var i = 0; i < lines.length; i++) {
+        var line = lines[i]
+        var hasLine = false
+
+        for (var j = 0; j < uniq.length; j++) {
+            if (uniq[j] === line) {
+                hasLine = true
+                break;
+            }
+        }
+        if (hasLine === false)
+            uniq.push(line)
+    }
+    console.log(uniq.length)
+
 </script>
 </body>
 </html>

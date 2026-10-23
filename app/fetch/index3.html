@@ -1,0 +1,20 @@
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<script>
+    const p1 = new Promise((resolve) => {
+        resolve('Успешные данные')
+    })
+
+    async function runSuccess() {
+        try {
+            const data = await p1
+            console.log('Успех:', data)
+        } catch (error) {
+            console.log('Сюда код не пойдет:', error)
+        }
+    }
+
+    runSuccess()
+</script>
