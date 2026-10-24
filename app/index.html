@@ -8,7 +8,28 @@
 <script type="module">
     const response = await fetch('./03_words.sql');
     const text = await response.text();
-    console.log(text.length)
+    console.log("Длина текста:", text.length);
+
+    var lines  = text.split("\n");
+    var count = 0
+
+    for(var i = 0; i < lines.length; i++) {
+            count++
+    }
+    for(var i = 0; i < lines.length ; i++){
+        var line = lines[i]
+        var fix = 0
+        for(var j = 0; j < lines.length; j++){
+            if(lines[j]== lines[i]){
+                fix++
+            }
+
+        }
+    }
+
+
+    console.log(count)
+
 </script>
 </body>
 </html>
