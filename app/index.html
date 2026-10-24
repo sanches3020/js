@@ -6,30 +6,126 @@
 </head>
 <body>
 <script type="module">
-    const response = await fetch('./03_words.sql');
-    const text = await response.text();
-    console.log("Длина текста:", text.length);
+    //Задача 1: Переворот строки. Напишите функцию, которая принимает строку и возвращает её в перевернутом виде
+    // (например, "js" => "sj").
+    const lines = "helloword"
+    const reverse = lines.split('').reverse();
+    console.log(reverse)
 
-    var lines  = text.split("\n");
-    var count = 0
+    //Задача 2: Проверка на спам. Создайте функцию, которая проверяет,
+    // содержит ли строка слово "free" или "now". Регистр букв не должен иметь значения.
 
-    for(var i = 0; i < lines.length; i++) {
-            count++
+    const row = "boevoi FREE xomiak time mister"
+    const math = row.match(/free|now/i)
+    if(math) {
+        console.log('слова найдены', math)
+    } else{
+        console.log('слова не найдены')
     }
-    for(var i = 0; i < lines.length ; i++){
-        var line = lines[i]
-        var fix = 0
-        for(var j = 0; j < lines.length; j++){
-            if(lines[j]== lines[i]){
-                fix++
-            }
 
+// Задача 3: Обрезка текста. Напишите функцию, которая принимает строку и максимальную длину.
+    // Если строка длиннее, она обрезает её и добавляет ....
+
+const line = "helloh"
+var max = 10
+    if(line.length > max){
+        const shortLine = line.slice(0,max)
+        console.log(shortLine)
+    } else {
+        console.log(line)
+    }
+
+// Задача 4: Фильтрация чисел. Дан массив чисел. Оставьте в нём только четные числа, которые больше 10.
+
+    var array = [1,26,98,65,4,356,7898,0,9,97,8,76,5,43]
+    var array1 = []
+
+    for(var i = 0; i < array.length; i++){
+        if (array[i] % 2 === 0 && array[i] > 10)
+          array1.push(array[i])
+    }
+    console.log(array1)
+
+
+ //Задача 5: Поиск максимума. Найдите максимальное число в массиве произвольной длины, используя Math.max
+
+    var array = [1,26,98,65,4,356,7898,0,9,97,8,76,5,43]
+    const max1 = Math.max.apply(null, array)
+    console.log(max1)
+
+    // Задача 6: Уникальные элементы. Избавьтесь от дубликатов в массиве (например, [1, 2, 2, 3] => [1, 2, 3])
+
+    var array = [1, 2, 2, 3]
+    var unique = []
+
+    for (var i = 0; i < array.length; i++) {
+        var duplicate = false
+
+        for (var j = i + 1; j < array.length; j++) {
+            if (array[i] === array[j]) {
+                duplicate = true
+                break
+            }
+        }
+        if (duplicate === false) {
+            unique.push(array[i])
         }
     }
+    console.log(unique)
 
 
-    console.log(count)
+//Задача 7: Фильтрация массива объектов по полю (Поиск).
+    // Дан массив пользователей [{name: "Иван", role: "admin"}, {name: "Ольга", role: "user"}].
+    // Отфильтруйте массив, найдя пользователя по имени "Ольга".
 
+const users = [{name: "Иван", role: "admin"}, {name: "Ольга", role: "user"}]
+const founds = users.find(user => user.name === "Ольга")
+    console.log(founds)
+
+//  Задача 8: Сумма зарплат. Дан объект { Ivan: 500, Anna: 800 }.
+    //  Получите его ключи через Object.keys(), переберите их циклом for...of и посчитайте общую сумму зарплат.
+
+var total = 0
+var employee = { Ivan: 500, Anna: 800 }
+    var keys = Object.keys(employee)
+
+    for(var name of keys){
+        total = total + employee[name]
+    }
+    console.log(total)
+
+// Задача 9: Объединение свойств. Даны два объекта: { name: "Tom" } и { age: 25 }.
+    // Создайте пустой объект user и с помощью цикла for...of и Object.keys()
+    // скопируйте свойства из обоих объектов в новый.
+
+    var objname = { name: "Tom" }
+    var objage = { age: 25 }
+    var user = {}
+
+    var key1 = Object.keys(objname)
+    for(var key of key1){
+    user[key] = objname[key]
+    }
+    var key2 = Object.keys(objage)
+    for(var key of key2) {
+        user[key] = objage[key2]
+    }
+    console.log(user)
+
+
+// Задача 10: Фильтрация объекта. Дан объект с ценами товаров { apple: 60, banana: 120, milk: 80 }.
+    // С помощью цикла for...of по ключам создайте новый объект, куда попадут только товары с ценой дороже 70.
+
+    var price = { apple: 60, banana: 120, milk: 80 }
+    var nwprice = {}
+
+    var keys = Object.keys(price)
+    for (var name of keys){
+        if(price[name] > 70){
+            nwprice[name] = price[name]
+        }
+    }
+        console.log(nwprice)
 </script>
 </body>
 </html>
