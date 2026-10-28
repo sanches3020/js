@@ -5,250 +5,36 @@
     <title>Title</title>
 </head>
 <body>
+<button>lox</button>
 <script type="module">
-    //Задача 1: Переворот строки. Напишите функцию, которая принимает строку и возвращает её в перевернутом виде
-    // (например, "js" => "sj").
-    const lines = "helloword"
-    const reverse = lines.split('').reverse().join('');
-    console.log(reverse)
+import wef from './chychelo.js'
+    var casino = new Promise(function (resolve, reject) {
+        var orel = 0
+        var reshka = 0
 
-    //Задача 2: Проверка на спам. Создайте функцию, которая проверяет,
-    // содержит ли строка слово "free" или "now". Регистр букв не должен иметь значения.
-
-    const row = "boevoi FREE xomiak time mister"
-    const math = row.match(/free|now/i)
-    if(math) {
-        console.log('слова найдены', math)
-    } else{
-        console.log('слова не найдены')
-    }
-
-// Задача 3: Обрезка текста. Напишите функцию, которая принимает строку и максимальную длину.
-    // Если строка длиннее, она обрезает её и добавляет ....
-
-var line = "helloh"
-var max = 3
-    if(line.length > max){
-        const shortLine = line.slice(0,max)
-        console.log(shortLine)
-    } else {
-        console.log(line)
-    }
-
-// Задача 4: Фильтрация чисел. Дан массив чисел. Оставьте в нём только четные числа, которые больше 10.
-
-    var array = [1,26,98,65,4,356,7898,0,9,97,8,76,5,43]
-    var array1 = []
-
-    for(var i = 0; i < array.length; i++){
-        if (array[i] % 2 === 0 && array[i] > 10)
-          array1.push(array[i])
-    }
-    console.log(array1)
-
-
- //Задача 5: Поиск максимума. Найдите максимальное число в массиве произвольной длины, используя Math.max
-
-    var array = [1,26,98,65,4,356,7898,0,9,97,8,76,5,43]
-    var max1 = Math.max.apply(null, array)
-    console.log(max1)
-
-    // Задача 6: Уникальные элементы. Избавьтесь от дубликатов в массиве (например, [1, 2, 2, 3] => [1, 2, 3])
-
-    var array = [1, 2, 2, 3,2,2]
-    var unique = []
-
-    for (var i = 0; i < array.length; i++) {
-        var duplicate = false
-
-        for (var j = i + 1; j < array.length; j++) {
-            if (array[i] === array[j]) {
-                duplicate = true
-                break
+        for(var i = 0; i < 2000; i++) {
+            var random = Math.random()
+            if(random < 0.5){
+                orel++
+            } else{
+                reshka++
             }
         }
-        if (duplicate === false) {
-            unique.push(array[i])
+        if(orel>reshka) {
+            resolve()
+        }else{
+            reject()
         }
-    }
-    console.log(unique)
-
-
-//Задача 7: Фильтрация массива объектов по полю (Поиск).
-    // Дан массив пользователей [{name: "Иван", role: "admin"}, {name: "Ольга", role: "user"}].
-    // Отфильтруйте массив, найдя пользователя по имени "Ольга".
-
-const users = [{name: "Иван", role: "admin"}, {name: "Ольга", role: "user"}]
-const founds = users.find(user => user.name === "Ольга")
-    console.log(founds)
-
-//  Задача 8: Сумма зарплат. Дан объект { Ivan: 500, Anna: 800 }.
-    //  Получите его ключи через Object.keys(), переберите их циклом for...of и посчитайте общую сумму зарплат.
-
-var total = 0
-var employee = { Ivan: 500, Anna: 800 }
-    var keys = Object.keys(employee)
-
-    for(var name of keys){
-        total = total + employee[name]
-    }
-    console.log(total)
-
-// Задача 9: Объединение свойств. Даны два объекта: { name: "Tom" } и { age: 25 }.
-    // Создайте пустой объект user и с помощью цикла for...of и Object.keys()
-    // скопируйте свойства из обоих объектов в новый.
-
-    var objname = { name: "Tom" }
-    var objage = { age: 25 }
-    var user = {}
-
-    var key1 = Object.keys(objname)
-    for(var key of key1){
-    user[key] = objname[key]
-    }
-    var key2 = Object.keys(objage)
-    for(var key of key2) {
-        user[key] = objage[key2]
-    }
-    console.log(user)
-
-
-// Задача 10: Фильтрация объекта. Дан объект с ценами товаров { apple: 60, banana: 120, milk: 80 }.
-    // С помощью цикла for...of по ключам создайте новый объект, куда попадут только товары с ценой дороже 70.
-
-    var price = { apple: 60, banana: 120, milk: 80 }
-    var nwprice = {}
-
-    var keys = Object.keys(price)
-    for (var name of keys){
-        if(price[name] > 70){
-            nwprice[name] = price[name]
-        }
-    }
-        console.log(nwprice)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //Задача 11: Сортировка пузырьком. Напишите функцию, которая принимает массив чисел
-    // и сортирует его по возрастанию методом пузырька (алгоритм Bubble Sort).
-
-    var array = [1,2,4,5]
-    for(var i = 0; i < array.length; i++){
-        for(var j = 0; j < array.length - 1; j++) {
-            if(array[i] > array[j +1]){
-
-            }
-        }
-    }
-
-console.log(array)
-    //Задача 12: Фильтрация через filter. Дан массив чисел. Используя встроенный метод filter(),
-    // создайте новый массив, содержащий только числа больше 10.
-
-    var array = [5,6,7,8,10, 12, 15,17]
-    var array10 = array.filter(item => item > 10)
-    console.log(array10)
-
-   // Задача 13: Массив массивов объектов. Дан массив, внутри которого лежат другие массивы с объектами.
-    // Используя метод map(), преобразуйте эту структуру в одномерный массив или извлеките из неё нужные данные.
-
-    var struct = [
-        [{ name: "sanches" }],
-        [{ age: "21" }],
-        [{ name: "Ivan" }, { name: "Olga" }]
-    ]
-    var names = struct.map(group => group.map(user => user.name));
-    console.log(names);
-
-      //  Задача 14: Перебор через forEach. Дан массив чисел. Используя метод forEach() и внешнюю стрелочную функцию,
-    //  выведите каждый элемент массива в консоль.
-
-    var array = [5,6,7,8,10]
-    var newar = (item) => {
-        console.log(item)
-    }
-    array.forEach(newar)
-
-
-      //  Задача 15: Сумма через reduce. Дан массив цен. Используя метод reduce(),
-    //  посчитайте и верните общую сумму всех элементов.
-    var price = [2,5,5]
-    var total = price.reduce((accum,curr) => accum + curr, 0)
-    console.log(total)
-
-        //Задача 16: Четные аргументы. Напишите функцию, которая находит все переданные в неё четные числовые параметры
-    // с помощью объекта arguments и выводит их в консоль одной строкой через пробел.
-
-    function findEvens() {
-    var evens = []
-    for( var i = 0; i < arguments.length; i++) {
-        if (arguments[i] % 2 === 0) {
-            evens.push(arguments[i])
-        }
-    }
-        var res = evens.join(" ");
-        console.log(res)
-    }
-    findEvens(1, 26, 98, 65, 4, 356)
-
-        //Задача 17: Вызов с разным числом параметров. Запустите созданную в Задаче 16 функцию трижды, передав в неё сначала 2 параметра,
-    // затем 5 параметров, а в третий раз — 0 параметров.
-
-    findEvens(2, 26)
-    findEvens(1,26,11,56,69)
-    findEvens()
-
-        //Задача 18: Симуляция монетки. Напишите цикл, который "подбрасывает" монетку (используя Math.random()) ровно 20 000 раз и подсчитывает,
-    // чего в итоге выпало больше — орла или решки.
-
-    var orel = 0
-    var reshka = 0
-
-    for(var i = 0; i < 20000; i++) {
-        var random = Math.random()
-        if(random < 0.5){
-            orel++
-        } else{
-            reshka++
-        }
-    }
-
-    const winner = orel > reshka ? "Орлов больше!" : "Решек больше!"
-    console.log(winner, `Орёл: ${orel}, Решка: ${reshka}`)
-
-
-    //Задача 19: Удаление из массива. Дан массив элементов.
-    // Используя метод splice(), удалите из него один конкретный элемент по его индексу.
-
-    var a = [1, 26, 98, 65, 4, 356]
-    var b = a.splice(2,1)
-    console.log(a)
-
-        //Задача 20: Удаление свойства из объекта. Дан обычный объект с полями (например, { name: "Иван", age: 25 }).
-    // Используя оператор delete, удалите из него одно любое свойство по его ключу.
-
-    var us = { name: "Иван", age: 25 }
-    var name = delete us.age
-    console.log(us)
-
+    })
+    casino.then(function (){
+        console.log('wef')
+    }).catch(function (){
+        console.log('lox')
+    }).finally(function (){
+        wef()
+        console.log('ldvkfvf')
+    })
+fetch("fmkreogj").then()
 </script>
 </body>
 </html>
