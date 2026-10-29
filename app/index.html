@@ -5,36 +5,99 @@
     <title>Title</title>
 </head>
 <body>
-<button>lox</button>
 <script type="module">
-import wef from './chychelo.js'
-    var casino = new Promise(function (resolve, reject) {
-        var orel = 0
-        var reshka = 0
 
-        for(var i = 0; i < 2000; i++) {
-            var random = Math.random()
-            if(random < 0.5){
-                orel++
-            } else{
-                reshka++
-            }
-        }
-        if(orel>reshka) {
-            resolve()
-        }else{
-            reject()
-        }
-    })
-    casino.then(function (){
-        console.log('wef')
-    }).catch(function (){
-        console.log('lox')
-    }).finally(function (){
-        wef()
-        console.log('ldvkfvf')
-    })
-fetch("fmkreogj").then()
+   // Задача 1: Поменяйте местами числовые значения двух переменных a и b, используя третью временную переменную (temp)
+   // в качестве буфера.
+
+   var a = 5
+   var b = 6
+
+   temp = a
+   a = b
+   b = temp
+
+   //Задача 2: Напишите функцию bubbleSort(arr), которая сортирует массив чисел по возрастанию
+   // классическим методом пузырька через два цикла for без оптимизаций.
+
+   var array = [5, 1, 4, 2]
+   for(var i = 0; i < array.length; i++){
+       for(var j = 0; j < array.length - 1; j++) {
+           if(array[j] > array[j +1]){
+
+               var temp = array[j]
+               array[j] = array[j+1]
+               array[j+1] = temp
+
+           }
+       }
+   }
+   console.log(array)
+
+   //сделай сортировку этого же массива с помощью функции sort
+
+   const arr = [5, 1, 4, 2]
+   arr.sort((a, b) => a - b)
+   console.log(arr)
+
+   //Задача 3: Напишите функцию createTimeoutPromise(message), которая возвращает промис,
+   // ожидающий от 1 до 5 секунд и выводящий переданное сообщение в resolve.
+   // Вызовите её трижды с разными сообщениями, запустите одновременно через Promise.all
+   // и выведите итоговый массив в консоль.
+
+   function createTimeoutPromise(message) {
+       return new Promise(resolve => {
+           setTimeout(() => {
+               resolve(message)
+           }, Math.floor(Math.random() * 5000) + 1000)
+       })
+   }
+       Promise.all([
+           createTimeoutPromise("1"),
+           createTimeoutPromise("2"),
+           createTimeoutPromise("3"),
+       ]).then(function (res) {
+           console.log('wef',res)
+   })
+
+   //Задача 4: Используя функцию из задачи 3, создайте массив из трех успешных промисов,
+   // передайте их в Promise.any и выведите в консоль сообщение от самого быстрого из них.
+
+   Promise.any([
+       createTimeoutPromise("one"),
+       createTimeoutPromise("two"),
+       createTimeoutPromise("three"),
+   ]).then(function (win){
+       console.log('wer',win)
+   })
+
+   //Задача 5: Напишите async/await функцию в блоке try...catch, которая последовательно делает
+   // три запроса fetch к JSON-файлам и три динамических импорта import() JS-модулей,
+   //   суммируя значение свойства balance из каждого источника.
+
+   async function calculate() {
+       let total = 0
+
+       try {
+
+
+           var mod = await import("./file1.js")
+           total += mod.balance
+
+           var mod2 = await import("./file2.js")
+           total += mod2.balance
+
+           var mod3 = await import("./file3.js")
+           total += mod3.balance
+
+           console.log("итог: ", total)
+       } catch (error) {
+           console.error("дета ошибка:", error)
+       }
+   }
+
+   calculate();
+
 </script>
 </body>
 </html>
