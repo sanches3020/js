@@ -8,10 +8,10 @@
         reject('Данные самого первого промиса')
     })
 
+    var in_progress = true
     func
         .then(data => {
             console.log('then 1')
-            throw new Error()
         })
         .catch(err => {
             console.log('catch 1')
@@ -22,4 +22,24 @@
         .catch(err => {
             console.log('catch 2')
         })
+        .then(data => {
+            console.log('then 233')
+        })
+        .finally(() => {
+            in_progress = false
+            console.log('finally')
+        })
+
+
+    async function p1() {
+        try {
+            await func
+            await func
+            await func
+            await func
+            console.log('then 1')
+        } catch(err) {
+            console.log('catch 1')
+        }
+    }
 </script>
