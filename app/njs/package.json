@@ -1,0 +1,11 @@
+{
+  "name": "wef",
+  "version": "1.1.1",
+  "type": "module",
+  "dependencies": {
+    "express": "^5.3.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}
