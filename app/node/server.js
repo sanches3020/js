@@ -3,9 +3,10 @@ import {put, config} from './config.js'
 
 const app = express()
 
-app.use(express.json())
+app.use(express.static('.'))
 
-app.put('/api/config', (req, res) => {
+app.use(express.json())
+app.post('/config', (req, res) => {
     try {
         for (const key of Object.keys(req.body)) {
             put(key, req.body[key])
