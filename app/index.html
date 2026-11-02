@@ -7,57 +7,135 @@
 <body>
 <script type="module">
 
-    var temp = {
-        message: "",
+    //1. Создайте переменные типов string, number, boolean, null, undefined, symbol и выведите их типы через typeof.
 
-        pray: function () {
-
-        },
-
-        number: 123,
-        attack: function () {
-
-        },
-
-        miy: function () {
-
-        },
-        age: 21,
+    var z1 = {
+        a: "привет",
+        b: 123,
+        c: true,
+        d: null,
+        f: undefined,
+        j: Symbol("id"),
 
     }
+    console.log(typeof z1.a)
+    console.log(typeof z1.b)
+    console.log(typeof z1.c)
+    console.log(typeof z1.d)
+    console.log(typeof z1.f)
+    console.log(typeof z1.j)
 
-    var temp2 = {
-        object1: {
-            arr: [],
-            func1 : function (){
-            },
+    //2. Создайте массив из строки, числа, булева значения и объекта. Одной строкой замените объект на массив из двух чисел.
+
+    var array = ["gwef", 124, true, {}]
+    array[3] = [1, 2]
+    console.log(array)
+
+    //3. Из массива положительных и отрицательных чисел методом .filter() оставьте только числа больше нуля.
+
+    var arr = [2, -3, 4, -7]
+    var arr2 = arr.filter(function (item) {
+
+        return item > 0
+    })
+
+    console.log(arr2)
+
+    //4. Создайте массив объектов user с полями name и age. Отсортируйте его по возрасту через .sort().
+
+    var users = [
+        {name: "ferhrthy", age: 30},
+        {name: "hfghfjf", age: 25},
+        {name: "yyhyyh", age: 35}
+    ];
+
+    users.sort(a => a.age - b.age)
+    users.sort(function (a,b){
+        return a.age - b.age
+    })
+    console.log(users)
+
+    //5. Создайте объект company с названием и массивом объектов departments (у каждого отдела свойства title и manager).
+
+    var company = {
+        name: "белпочта",
+        departments: {
+            title: "ОАСУ",
+            manager: "начальник",
         },
-        object2: {
-            flag: true,
-            object3:{
-
-            },
-            func832: function (){
-
-            },
-
-        },
-
+        title: "коммерческий",
+        manager: "начальник-крыса",
     }
+    console.log(company);
 
-    var temp3 = [
-        {
-            sofi:null,
-            object616:{
+    //6. Создайте объект digitalLibrary -> в нем объект genres -> в нем массивы sciFi и biography ->
+    // внутри массивов объекты книг с title и author.
 
-            },
-        },
-        "",
-        function (){
-
+    var digitalLibrary = {
+        genres: {
+            sciFi: [
+                {
+                    title: "крпрепекп",
+                    author: " аупоудцпоарпо",
+                }
+            ],
+            biography: [
+                {
+                    title: "оарроароароаоа",
+                    author: " рарроуро",
+                }
+            ]
         }
-    ]
+    };
 
+    //7. Создайте объект calculator с числами a, b и методом sum(), который возвращает их сумму через this.
+
+    var calculator = {
+        a: 5,
+        b: 5,
+        sum: function () {
+            return this.a + this.b
+        }
+    };
+    console.log(calculator.sum())
+
+
+    //8. Из массива объектов car (поля brand и speed) методом .map() создайте новый массив только со скоростями, увеличенными на 20.
+
+    var car = [
+        {brand: "BMW", speed: 60,},
+        {brand: "Audi", speed: 60,},
+        {brand: "jguitrrh", speed: 60,},
+    ]
+    var sd = car.map(item => item.speed + 20)
+    console.log(sd)
+
+    //9. Напишите функцию processUser(name, callback), которая вызывает callback с аргументом "Привет, [name]".
+
+    function processUser(name, callback) {
+        callback("Привет, " + name)
+    }
+    processUser("Алексей", function (message) {
+        console.log(message)
+    });
+
+    //10. Напишите функцию calculate(num1, num2, operation), вызывающую внутри себя operation(num1, num2).
+    // Передайте туда функции сложения, а затем умножения.
+
+    function calculate(num1, num2, operation) {
+        return operation(num1, num2)
+    }
+
+    function sum(a, b) {
+        return a + b
+    }
+
+    function multi(a, b) {
+        return a * b
+    }
+
+    console.log(calculate(5, 3, sum))
+    console.log(calculate(5, 3, multi))
 
 </script>
 </body>
